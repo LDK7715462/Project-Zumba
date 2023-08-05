@@ -83,11 +83,11 @@
 
 This project proposal outlines the development of a Zumba class system with concessions. The system will allow users to book Zumba classes, purchase concessions, and track their progress. The system will be developed using a cloud-based platform and will be accessible via a web browser or mobile app.
 
-**Project Introduction**
+## Project Introduction
 
 Zumba is a popular fitness program that combines dance and aerobics. The program is known for its high energy and fun atmosphere. A Zumba class system with concessions would allow users to book classes, purchase concessions, and track their progress. This would make it easier for users to participate in Zumba classes and would help them to stay motivated.
 
-**Purpose**
+## Purpose
 
 The purpose of this project is to develop a Zumba class system with concessions. The system will be developed using a cloud-based platform and will be accessible via a web browser or mobile app. The system will allow users to:
 
