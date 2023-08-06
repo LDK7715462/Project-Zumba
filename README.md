@@ -165,7 +165,7 @@ Tristan -
 
 Lucky -
 
-Joseph -
+Joseph - josgla41@student.wintec.ac.nz
 
 Project Link: [https://github.com/SandalBandit/INFO602-ProjectZumba/](https://github.com/SandalBandit/INFO602-ProjectZumba/)
 
