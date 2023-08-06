@@ -163,7 +163,7 @@ Dylan - [@SandalBandito](https://twitter.com/SandalBandito) - dylmar98@student.w
 
 Tristan - tristanfisher@outlook.co.nz
 
-Lucky -
+Lucky - l.khoury1213@gmail.com
 
 Joseph - josgla41@student.wintec.ac.nz
 
