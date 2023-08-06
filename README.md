@@ -161,7 +161,7 @@ Don't forget to give the project a star! Thanks again!
 
 Dylan - [@SandalBandito](https://twitter.com/SandalBandito) - dylmar98@student.wintec.ac.nz
 
-Tristan -
+Tristan - tristanfisher@outlook.co.nz
 
 Lucky -
 
