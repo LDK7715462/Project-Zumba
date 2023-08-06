@@ -33,7 +33,6 @@
   <a href="https://github.com/SandalBandit/INFO602-ProjectZumba">
     <img src="images/business_logo_white.png" alt="Logo" width="400" height="400">
   </a>
-
   <h1 align="center">INFO602 - Zumba Project</h3>
 
   <p align="center">
