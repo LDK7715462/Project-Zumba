@@ -41,9 +41,9 @@
     <br />
     <a href="#">View Demo</a>
     ·
-    <a href="https://github.com/SandalBandit/INFO602-ProjectZumba/issues">Report Bug</a>
+    <a href="https://github.com/DylanMartino/INFO602-ProjectZumba/issues">Report Bug</a>
     ·
-    <a href="https://github.com/SandalBandit/INFO602-ProjectZumba/issues">Request Feature</a>
+    <a href="https://github.com/DylanMartino/INFO602-ProjectZumba/issues">Request Feature</a>
   </p>
 </div>
 
@@ -132,7 +132,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
     - [ ] Android App
     - [ ] iOS App
 
-See the [open issues](https://github.com/SandalBandit/INFO602-ProjectZumba/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/DylanMartino/INFO602-ProjectZumba/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -165,9 +165,7 @@ Tristan - tristanfisher@outlook.co.nz
 
 Lucky - l.khoury1213@gmail.com
 
-Joseph - josgla41@student.wintec.ac.nz
-
-Project Link: [https://github.com/SandalBandit/INFO602-ProjectZumba/](https://github.com/SandalBandit/INFO602-ProjectZumba/)
+Project Link: [https://github.com/DylanMartino/INFO602-ProjectZumba/](https://github.com/DylanMartino/INFO602-ProjectZumba/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
