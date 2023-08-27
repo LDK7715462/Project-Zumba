@@ -56,8 +56,8 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#project-introduction">Built With</a></li>
-        <li><a href="#purpose">Built With</a></li>
+        <li><a href="#project-introduction">Project Introduction</a></li>
+        <li><a href="#purpose">Purpose</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
