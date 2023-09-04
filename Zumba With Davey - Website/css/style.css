@@ -1,0 +1,37 @@
+      /* Create a gradient background with bright colors */
+      body {
+          background: linear-gradient(90deg, #03f0bc, #3bf5d6, #61ffe5, #61ffd7, #61ffd7, #69ffeb);
+          background-size: 600% 600%;
+          animation: gradient 10s ease infinite;
+      }
+
+      /* Add animation for the background gradient */
+      @keyframes gradient {
+          0% {
+              background-position: 0% 50%;
+          }
+
+          50% {
+              background-position: 100% 50%;
+          }
+
+          100% {
+              background-position: 0% 50%;
+          }
+      }
+
+      /* Add a semi-transparent background for content */
+      .zumba-class-content {
+          background-color: rgba(255, 255, 255, 0.1);
+          padding: 20px;
+          border-radius: 10px;
+      }
+
+      .error {
+        background: #F2DEDE;
+        color: #A94442;
+        padding: 10px;
+        width: 95%;
+        border-radius: 5px;
+        margin: 20px auto;
+     }
