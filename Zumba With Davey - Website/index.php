@@ -1,6 +1,6 @@
 <?php
-// Include auth_session.php file for session management
-include("auth_session.php");
+session_start();
+include "db_conn.php";
 
 // Check if the user is logged in
 if (isset($_SESSION['customer_id'])) {
@@ -88,7 +88,7 @@ if (isset($_SESSION['customer_id'])) {
 </head>
 
 <body>
-<div class="bg-teal-100 p-10 rounded shadow-md">
+    <div class="bg-teal-100 p-10 rounded shadow-md">
             <h2 class="text-2xl text-center font-bold mb-4 text-teal-900">Landing Page</h2>
             <hr class="my-6">
         </div>

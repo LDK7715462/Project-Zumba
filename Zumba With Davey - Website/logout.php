@@ -1,8 +1,8 @@
 <?php
-session_start();
+include("auth_session.php");
 
 // Destroy the session and redirect to the login page
-session_unset();
+clear_session_variables();
 session_destroy();
 header("Location: index.php");
 exit();
