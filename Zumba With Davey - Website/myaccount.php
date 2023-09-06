@@ -1,10 +1,9 @@
 <?php
-session_start();
-include "db_conn.php";
 // Include auth_session.php file for session management
+include("auth_session.php");
 
 // Check if the user is logged in
-if (isset($_SESSION['user_id'])) {
+if (isset($_SESSION['customer_id'])) {
     // User is logged in
     $navbarLinks = array(
         'Home' => './index.php',
@@ -30,38 +29,6 @@ if (isset($_SESSION['user_id'])) {
         'Register' => './register.php',
         'Login' => './login.php'
     );
-}
-
-if (isset($_POST['email']) && isset($_POST['password'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    // Retrieve user data by email
-    $query = "SELECT * FROM `customer` WHERE email=?";
-    $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, "s", $email);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-
-    if (mysqli_num_rows($result) === 1) {
-        $row = mysqli_fetch_assoc($result);
-
-        // Verify password
-        if (password_verify($password, $row['password'])) {
-            $_SESSION['customer_id'] = $row['customer_id'];
-			$_SESSION['first_name'] = $row['first_name'];
-			$_SESSION['last_name'] = $row['last_name'];
-            $_SESSION['email'] = $row['email'];
-            header("Location: myaccount.php");
-            exit();
-        } else {
-            header("Location: login.php?error=Incorrect Email or password");
-            exit();
-        }
-    } else {
-        header("Location: login.php?error=Incorrect Email or password");
-        exit();
-    }
 }
 ?>
 <!DOCTYPE html>
@@ -120,30 +87,19 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     </header>
 </head>
 
-	<!-- Login Form HTML -->
-	<div class="min-h-screen flex items-center justify-center">
+
+<body>
+    <div class="min-h-screen flex items-center justify-center">
         <div class="bg-teal-100 p-10 rounded shadow-md">
-            <!---------------- CLIENT LOGIN -------------->
-            <p class="text-[10px] text-right font-bold mb-4 text-black">Don't have an Account? <a class="text-teal-500" href="./register.php">Register</a></p>
-                <hr class="my-1">
-            <h2 class="text-2xl text-center font-bold mb-4 text-teal-900">User Login</h2>
-            <form action="login.php" method="POST">
-				<?php if (isset($_GET['error'])) { ?>
-     				<p class="error"><?php echo $_GET['error']; ?></p>
-     			<?php } ?>
-				<div class="mb-2">
-                    <input type="email" id="email" name="email" class="w-full border border-gray-300 rounded-full px-3 py-2" placeholder="Email" required>
-                </div>
-                <div class="mb-2">
-                    <input type="password" id="loginPassword" name="password" class="w-full border border-gray-300 rounded-full px-3 py-2" placeholder="Password" required>
-                </div>
-                <div class="mb-2">
-                    <button type="submit" class="bg-teal-500 text-white px-4 py-2 rounded-full hover:bg-teal-400">Login</button>
-                </div>
-              </form>
+        <?php if (isset($_SESSION['customer_id'])) { ?>
+            <h2 class="text-2xl text-left font-bold mb-4 text-teal-900">Welcome!</h2>
+                <p><strong><?php echo $_SESSION['first_name'];?> <?php echo $_SESSION['last_name'];?></strong></p>
+                <p>You are now at the user dashboard page.</p>
+                    <?php } ?>
             <hr class="my-6">
         </div>
     </div>
+
 
     <!-- Footer -->
     <footer class="bg-teal-500 p-4 text-white text-center">

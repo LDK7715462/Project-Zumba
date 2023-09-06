@@ -1,6 +1,35 @@
 <?php
-//include auth_session.php file on all user panel pages
+// Include auth_session.php file for session management
 include("auth_session.php");
+
+// Check if the user is logged in
+if (isset($_SESSION['customer_id'])) {
+    // User is logged in
+    $navbarLinks = array(
+        'Home' => './index.php',
+        'About' => '#',
+        'Classes' => '#',
+        'Contact' => '#',
+        '' => '#',
+        ' ' => '#',
+        '  ' => '#',
+        'My Account' => './myaccount.php',
+        'Logout' => './logout.php' // Add a logout link
+    );
+} else {
+    // User is not logged in
+    $navbarLinks = array(
+        'Home' => './index.php',
+        'About' => '#',
+        'Classes' => '#',
+        'Contact' => '#',
+        '' => '#',
+        ' ' => '#',
+        '  ' => '#',
+        'Register' => './register.php',
+        'Login' => './login.php'
+    );
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,9 +51,9 @@ include("auth_session.php");
     <body class="bg-gray-100">
       <!-- Header -->
       <header class="bg-teal-500 p-5">
-          <nav class="container mx-auto flex justify-between items-center">
-              <div class="text-white text-2xl font-bold">Zumba With Davey</div>
-              <div class="md:hidden">
+        <nav class="container mx-auto flex justify-between items-center">
+            <div class="text-white text-2xl font-bold">Zumba With Davey</div>
+            <div class="md:hidden">
                   <!-- Mobile menu button (navbar-burger) -->
                   <button id="mobile-menu-button" class="text-teal-100">
                       <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -34,32 +63,28 @@ include("auth_session.php");
                   <!-- Mobile menu (hidden by default) -->
                   <div id="mobile-menu" class="hidden">
                       <ul class="text-white text-xl font-semibold">
-                          <li class="py-2">Home</li>
-                          <li class="py-2">About</li>
-                          <li class="py-2">Classes</li>
-                          <li class="py-2">Contact</li>
-                          <li class="py-2"></li>
-                          <li class="py-2"><a href="./register.php">Register</a></li>
-                          <li class="py-2"><a href="./login.php">Login</a></li>
+                            <?php
+                            // Loop through the $navbarLinks array to generate navbar links
+                            foreach ($navbarLinks as $text => $link) {
+                                echo '<li><a href="' . $link . '">' . $text . '</a></li>';
+                            }
+                            ?>
                       </ul>
                   </div>
               </div>
-              <div class="hidden md:block">
-                  <!-- Desktop menu -->
-                  <ul class="flex space-x-4 text-white text-xl font-semibold">
-                      <li><a href="./index.php">Home</a></li>
-                      <li><a href="#">About</a></li>
-                      <li><a href="#">Classes</a></li>
-                      <li><a href="#">Contact</a></li>
-                      <li><a href="#"></a></li>
-                      <li></li>
-                      <li></li>
-                      <li><a href="./register.php">Register</a></li>
-                      <li><a href="./login.php">Login</a></li>
-                  </ul>
-              </div>
-          </nav>
-      </header>
+            <div class="hidden md:block">
+                <!-- Desktop menu -->
+                <ul class="flex space-x-4 text-white text-xl font-semibold">
+                    <?php
+                    // Loop through the $navbarLinks array to generate navbar links
+                    foreach ($navbarLinks as $text => $link) {
+                        echo '<li><a href="' . $link . '">' . $text . '</a></li>';
+                    }
+                    ?>
+                </ul>
+            </div>
+        </nav>
+    </header>
 </head>
 
 <body>

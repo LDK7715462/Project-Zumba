@@ -2,6 +2,35 @@
 session_start();
 include "db_conn.php";
 
+// Check if the user is logged in
+if (isset($_SESSION['customer_id'])) {
+    // User is logged in
+    $navbarLinks = array(
+        'Home' => './index.php',
+        'About' => '#',
+        'Classes' => '#',
+        'Contact' => '#',
+        '' => '#',
+        ' ' => '#',
+        '  ' => '#',
+        'My Account' => './myaccount.php',
+        'Logout' => './logout.php' // Add a logout link
+    );
+} else {
+    // User is not logged in
+    $navbarLinks = array(
+        'Home' => './index.php',
+        'About' => '#',
+        'Classes' => '#',
+        'Contact' => '#',
+        '' => '#',
+        ' ' => '#',
+        '  ' => '#',
+        'Register' => './register.php',
+        'Login' => './login.php'
+    );
+}
+
 if (isset($_POST['email']) && isset($_POST['password1']) && isset($_POST['password2'])) {
     // removes backslashes
     $firstname = stripslashes($_POST['firstname']);
@@ -86,7 +115,7 @@ if (isset($_POST['email']) && isset($_POST['password1']) && isset($_POST['passwo
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zumba With Davey</title>
+    <title>Zumba With Davey - Home</title>
     <!-- Include Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./css/output.css">
@@ -101,9 +130,9 @@ if (isset($_POST['email']) && isset($_POST['password1']) && isset($_POST['passwo
     <body class="bg-gray-100">
       <!-- Header -->
       <header class="bg-teal-500 p-5">
-          <nav class="container mx-auto flex justify-between items-center">
-              <div class="text-white text-2xl font-bold">Zumba With Davey</div>
-              <div class="md:hidden">
+        <nav class="container mx-auto flex justify-between items-center">
+            <div class="text-white text-2xl font-bold">Zumba With Davey</div>
+            <div class="md:hidden">
                   <!-- Mobile menu button (navbar-burger) -->
                   <button id="mobile-menu-button" class="text-teal-100">
                       <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -113,31 +142,30 @@ if (isset($_POST['email']) && isset($_POST['password1']) && isset($_POST['passwo
                   <!-- Mobile menu (hidden by default) -->
                   <div id="mobile-menu" class="hidden">
                       <ul class="text-white text-xl font-semibold">
-                          <li class="py-2">Home</li>
-                          <li class="py-2">About</li>
-                          <li class="py-2">Classes</li>
-                          <li class="py-2">Contact</li>
+                            <?php
+                            // Loop through the $navbarLinks array to generate navbar links
+                            foreach ($navbarLinks as $text => $link) {
+                                echo '<li><a href="' . $link . '">' . $text . '</a></li>';
+                            }
+                            ?>
                       </ul>
                   </div>
               </div>
-              <div class="hidden md:block">
-                  <!-- Desktop menu -->
-                  <ul class="flex space-x-4 text-white text-xl font-semibold">
-                      <li><a href="./index.php">Home</a></li>
-                      <li><a href="#">About</a></li>
-                      <li><a href="#">Classes</a></li>
-                      <li><a href="#">Contact</a></li>
-                      <li><a href="#"></a></li>
-                      <li><a href="#"></a></li>
-                      <li><a href="#"></a></li>
-                      <li><a href="#"></a></li>
-                      <li><a href="#"></a></li>
-                      <li><a href="./register.php">Register</a></li>
-                      <li><a href="./login.php">Login</a></li>
-                  </ul>
-              </div>
-          </nav>
-      </header>
+            <div class="hidden md:block">
+                <!-- Desktop menu -->
+                <ul class="flex space-x-4 text-white text-xl font-semibold">
+                    <?php
+                    // Loop through the $navbarLinks array to generate navbar links
+                    foreach ($navbarLinks as $text => $link) {
+                        echo '<li><a href="' . $link . '">' . $text . '</a></li>';
+                    }
+                    ?>
+                </ul>
+            </div>
+        </nav>
+    </header>
+</head>
+
 
 <!-- Registration Form HTML -->
 <div class="min-h-screen flex items-center justify-center">
