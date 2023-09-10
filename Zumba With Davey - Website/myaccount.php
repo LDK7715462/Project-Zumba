@@ -92,7 +92,7 @@ if (isset($_SESSION['customer_id'])) {
     <body>
         <?php if (isset($_SESSION['customer_id'])) { ?>
             <div class="min-h-screen flex items-center justify-center">
-                <div class="bg-teal-100 p-10 rounded shadow-md">
+                <div class="w-[30rem] bg-teal-100 p-10 rounded shadow-md">
                     <h2 class="text-2xl text-left font-bold mb-4 text-teal-900">Welcome, <?php echo $_SESSION['first_name']; ?>!</h2>
 
                     <!-- Profile Update Form -->
