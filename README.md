@@ -123,9 +123,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Design the system.
-- [ ] Develop the user interface.
-- [ ] Develop the back-end system.
+- [x] Design the system.
+- [x] Develop the user interface.
+- [x] Develop the back-end system.
 - [ ] Integrate with a payment processor.
 - [ ] Deploy the system/website/app.
     - [ ] System
