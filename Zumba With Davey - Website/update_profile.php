@@ -16,20 +16,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
     $gender = $_POST['gender'];
-    $mobile_number = $_POST['phone'];
+    $mobile_number = $_POST['mobile_number'];
     $date_of_birth = $_POST['date_of_birth'];
 
-    // SQL query to update user's profile
-    $sql = "UPDATE customer SET 
-            first_name = '$first_name',
-            last_name = '$last_name',
-            email = '$email',
-            gender = '$gender',
-            phone = '$mobile_number',
-            date_of_birth = '$date_of_birth'
-            WHERE customer_id = $customer_id";
+    // Basic validation for email and date_of_birth
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        header("Location: myaccount.php?error=Invalid email format");
+        exit;
+    }
 
-    if ($conn->query($sql) === TRUE) {
+    // You can add more specific validation for date_of_birth if needed
+
+    // SQL query to update user's profile using prepared statement
+    $sql = "UPDATE customer SET 
+            first_name = ?,
+            last_name = ?,
+            email = ?,
+            gender = ?,
+            phone = ?,
+            date_of_birth = ?
+            WHERE customer_id = ?";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssssssi", $first_name, $last_name, $email, $gender, $mobile_number, $date_of_birth, $customer_id);
+
+    if ($stmt->execute()) {
         // Update successful
         // You can also update the session variables with the new information
         $_SESSION['first_name'] = $first_name;
@@ -39,11 +50,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['phone'] = $mobile_number;
         $_SESSION['date_of_birth'] = $date_of_birth;
 
-        header("Location: myaccount.php"); // Redirect to the profile page
+        header("Location: myaccount.php?success=Profile updated successfully"); // Redirect to the profile page with a success message
         exit;
     } else {
-        header("Location: myaccount.php?error=Error updating profile"); // Redirect to the profile page
-        echo "Error updating profile: " . $conn->error;
+        header("Location: myaccount.php?error=Error updating profile"); // Redirect to the profile page with an error message
+        exit;
     }
 }
 
