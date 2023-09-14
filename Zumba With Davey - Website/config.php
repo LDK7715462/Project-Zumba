@@ -24,7 +24,7 @@ function get_session_variables()
             $_SESSION['last_name'] = $last_name;
             $_SESSION['email'] = $email;
             $_SESSION['gender'] = $gender;
-            $_SESSION['mobile_number'] = $mobile_number;
+            $_SESSION['phone'] = $mobile_number;
             $_SESSION['date_of_birth'] = $date_of_birth;
             $_SESSION['no_concession'] = $concessions;
         }
