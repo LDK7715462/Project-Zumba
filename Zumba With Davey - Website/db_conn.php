@@ -1,3 +1,6 @@
+// To use on local machine, install XAMPP Control Panel and copy website files to
+// C:\xampp\htdocs\dashboard after installation.
+// Also make sure to setup mysql database with provided sql script.
 <?php
 $servername = "localhost";
 $username = "root";
