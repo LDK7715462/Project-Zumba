@@ -104,7 +104,7 @@ if (isset($_SESSION['customer_id'])) {
     <div class="bg-white rounded-lg shadow-lg p-6 col-span-1 sm:col-span-1  backdrop-blur-lg bg-white/20">
       <strong>Personal Details</strong><br>
       <?php if (is_user_logged_in()) {
-        display_customer_details(); ?>
+        display_customer_details();?>
         <!-- Display user's profile information -->
         <h1 class="text-2xl font-semibold mb-4">
           <?php echo $first_name . ' ' . $last_name; ?>

@@ -34,13 +34,17 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
     if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
-
+        include "config.php";
         // Verify password
         if (password_verify($password, $row['password'])) {
             $_SESSION['customer_id'] = $row['customer_id'];
             $_SESSION['first_name'] = $row['first_name'];
             $_SESSION['last_name'] = $row['last_name'];
             $_SESSION['email'] = $row['email'];
+            $_SESSION['gender'] = $row['gender'];
+            $_SESSION['phone'] = $row['phone'];
+            $_SESSION['date_of_birth'] = $row['date_of_birth'];
+            $_SESSION['no_concession'] = $row['no_concession'];
             header("Location: myaccount.php");
             exit();
         } else {
