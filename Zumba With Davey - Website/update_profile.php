@@ -50,10 +50,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['phone'] = $mobile_number;
         $_SESSION['date_of_birth'] = $date_of_birth;
 
-        header("Location: myaccount.php?success=Profile updated successfully"); // Redirect to the profile page with a success message
+        header("Location: edit_profile.php?success=Profile updated successfully"); // Redirect to the profile page with a success message
         exit;
     } else {
-        header("Location: myaccount.php?error=Error updating profile"); // Redirect to the profile page with an error message
+        header("Location: edit_profile.php?error=Error updating profile"); // Redirect to the profile page with an error message
         exit;
     }
 }
